@@ -61,21 +61,21 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-hroCvz"
-      binary: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-hroCvz"
+      source: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-JqgqUW"
+      binary: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-JqgqUW"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
     buildResult:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-hroCvz'
+        Change Dir: '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-JqgqUW'
         
-        Run Build Command(s): /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_c61eb/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_c61eb.dir/build.make CMakeFiles/cmTC_c61eb.dir/build
-        make[1]: Entering directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-hroCvz'
-        Building C object CMakeFiles/cmTC_c61eb.dir/CMakeCCompilerABI.c.o
-        /usr/bin/cc   -v -o CMakeFiles/cmTC_c61eb.dir/CMakeCCompilerABI.c.o -c /home/reek/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeCCompilerABI.c
+        Run Build Command(s): /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_fdeba/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_fdeba.dir/build.make CMakeFiles/cmTC_fdeba.dir/build
+        make[1]: Entering directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-JqgqUW'
+        Building C object CMakeFiles/cmTC_fdeba.dir/CMakeCCompilerABI.c.o
+        /usr/bin/cc   -v -o CMakeFiles/cmTC_fdeba.dir/CMakeCCompilerABI.c.o -c /home/reek/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeCCompilerABI.c
         Using built-in specs.
         COLLECT_GCC=/usr/bin/cc
         OFFLOAD_TARGET_NAMES=nvptx-none:hsa
@@ -84,8 +84,8 @@ events:
         Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.2' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-9QDOt0/gcc-9-9.4.0/debian/tmp-nvptx/usr,hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
         Thread model: posix
         gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c61eb.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
-         /usr/lib/gcc/x86_64-linux-gnu/9/cc1 -quiet -v -imultiarch x86_64-linux-gnu /home/reek/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_c61eb.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cckomQQG.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_fdeba.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/9/cc1 -quiet -v -imultiarch x86_64-linux-gnu /home/reek/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_fdeba.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccDlMZ93.s
         GNU C17 (Ubuntu 9.4.0-1ubuntu1~20.04.2) version 9.4.0 (x86_64-linux-gnu)
         	compiled by GNU C version 9.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
         
@@ -107,15 +107,15 @@ events:
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: 01da938ff5dc2163489aa33cb3b747a7
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c61eb.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
-         as -v --64 -o CMakeFiles/cmTC_c61eb.dir/CMakeCCompilerABI.c.o /tmp/cckomQQG.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_fdeba.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+         as -v --64 -o CMakeFiles/cmTC_fdeba.dir/CMakeCCompilerABI.c.o /tmp/ccDlMZ93.s
         GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/local/cuda/lib64/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:./:/usr/local/cuda/lib64/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c61eb.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
-        Linking C executable cmTC_c61eb
-        /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c61eb.dir/link.txt --verbose=1
-        /usr/bin/cc  -v -rdynamic CMakeFiles/cmTC_c61eb.dir/CMakeCCompilerABI.c.o -o cmTC_c61eb 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_fdeba.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+        Linking C executable cmTC_fdeba
+        /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fdeba.dir/link.txt --verbose=1
+        /usr/bin/cc  -v -rdynamic CMakeFiles/cmTC_fdeba.dir/CMakeCCompilerABI.c.o -o cmTC_fdeba 
         Using built-in specs.
         COLLECT_GCC=/usr/bin/cc
         COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper
@@ -127,10 +127,10 @@ events:
         gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) 
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/local/cuda/lib64/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:./:/usr/local/cuda/lib64/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c61eb' '-mtune=generic' '-march=x86-64'
-         /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/cceOFBH6.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_c61eb /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/local/cuda/lib64/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L. -L/usr/local/cuda/lib64 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_c61eb.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
-        COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c61eb' '-mtune=generic' '-march=x86-64'
-        make[1]: Leaving directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-hroCvz'
+        COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_fdeba' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/cc9TUTsw.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_fdeba /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/local/cuda/lib64/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L. -L/usr/local/cuda/lib64 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_fdeba.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_fdeba' '-mtune=generic' '-march=x86-64'
+        make[1]: Leaving directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-JqgqUW'
         
       exitCode: 0
   -
@@ -168,13 +168,13 @@ events:
     message: |
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-hroCvz']
+        ignore line: [Change Dir: '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-JqgqUW']
         ignore line: []
-        ignore line: [Run Build Command(s): /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_c61eb/fast]
-        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_c61eb.dir/build.make CMakeFiles/cmTC_c61eb.dir/build]
-        ignore line: [make[1]: Entering directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-hroCvz']
-        ignore line: [Building C object CMakeFiles/cmTC_c61eb.dir/CMakeCCompilerABI.c.o]
-        ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_c61eb.dir/CMakeCCompilerABI.c.o -c /home/reek/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s): /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_fdeba/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_fdeba.dir/build.make CMakeFiles/cmTC_fdeba.dir/build]
+        ignore line: [make[1]: Entering directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-JqgqUW']
+        ignore line: [Building C object CMakeFiles/cmTC_fdeba.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_fdeba.dir/CMakeCCompilerABI.c.o -c /home/reek/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeCCompilerABI.c]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/cc]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:hsa]
@@ -183,8 +183,8 @@ events:
         ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.2' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-9QDOt0/gcc-9-9.4.0/debian/tmp-nvptx/usr hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
         ignore line: [Thread model: posix]
         ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c61eb.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
-        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/9/cc1 -quiet -v -imultiarch x86_64-linux-gnu /home/reek/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_c61eb.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cckomQQG.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_fdeba.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/9/cc1 -quiet -v -imultiarch x86_64-linux-gnu /home/reek/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_fdeba.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccDlMZ93.s]
         ignore line: [GNU C17 (Ubuntu 9.4.0-1ubuntu1~20.04.2) version 9.4.0 (x86_64-linux-gnu)]
         ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.0  MPFR version 4.0.2  MPC version 1.1.0  isl version isl-0.22.1-GMP]
         ignore line: []
@@ -206,15 +206,15 @@ events:
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: 01da938ff5dc2163489aa33cb3b747a7]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c61eb.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_c61eb.dir/CMakeCCompilerABI.c.o /tmp/cckomQQG.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_fdeba.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_fdeba.dir/CMakeCCompilerABI.c.o /tmp/ccDlMZ93.s]
         ignore line: [GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/local/cuda/lib64/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:./:/usr/local/cuda/lib64/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c61eb.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
-        ignore line: [Linking C executable cmTC_c61eb]
-        ignore line: [/home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c61eb.dir/link.txt --verbose=1]
-        ignore line: [/usr/bin/cc  -v -rdynamic CMakeFiles/cmTC_c61eb.dir/CMakeCCompilerABI.c.o -o cmTC_c61eb ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_fdeba.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [Linking C executable cmTC_fdeba]
+        ignore line: [/home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fdeba.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/cc  -v -rdynamic CMakeFiles/cmTC_fdeba.dir/CMakeCCompilerABI.c.o -o cmTC_fdeba ]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/cc]
         ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper]
@@ -226,13 +226,13 @@ events:
         ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) ]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/local/cuda/lib64/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:./:/usr/local/cuda/lib64/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c61eb' '-mtune=generic' '-march=x86-64']
-        link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/cceOFBH6.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_c61eb /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/local/cuda/lib64/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L. -L/usr/local/cuda/lib64 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_c61eb.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_fdeba' '-mtune=generic' '-march=x86-64']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/cc9TUTsw.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_fdeba /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/local/cuda/lib64/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L. -L/usr/local/cuda/lib64 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_fdeba.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/cceOFBH6.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/cc9TUTsw.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -251,7 +251,7 @@ events:
           arg [-znow] ==> ignore
           arg [-zrelro] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_c61eb] ==> ignore
+          arg [cmTC_fdeba] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o]
@@ -266,7 +266,7 @@ events:
           arg [-L.] ==> ignore
           arg [-L/usr/local/cuda/lib64] ==> dir [/usr/local/cuda/lib64]
           arg [-L/usr/lib/gcc/x86_64-linux-gnu/9/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../..]
-          arg [CMakeFiles/cmTC_c61eb.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [CMakeFiles/cmTC_fdeba.dir/CMakeCCompilerABI.c.o] ==> ignore
           arg [-lgcc] ==> lib [gcc]
           arg [--push-state] ==> ignore
           arg [--as-needed] ==> ignore
@@ -308,21 +308,21 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-oWI2lz"
-      binary: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-oWI2lz"
+      source: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-mVdNcW"
+      binary: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-mVdNcW"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
     buildResult:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-oWI2lz'
+        Change Dir: '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-mVdNcW'
         
-        Run Build Command(s): /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_4623d/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_4623d.dir/build.make CMakeFiles/cmTC_4623d.dir/build
-        make[1]: Entering directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-oWI2lz'
-        Building CXX object CMakeFiles/cmTC_4623d.dir/CMakeCXXCompilerABI.cpp.o
-        /usr/bin/c++   -v -o CMakeFiles/cmTC_4623d.dir/CMakeCXXCompilerABI.cpp.o -c /home/reek/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_ae503/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_ae503.dir/build.make CMakeFiles/cmTC_ae503.dir/build
+        make[1]: Entering directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-mVdNcW'
+        Building CXX object CMakeFiles/cmTC_ae503.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/c++   -v -o CMakeFiles/cmTC_ae503.dir/CMakeCXXCompilerABI.cpp.o -c /home/reek/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         OFFLOAD_TARGET_NAMES=nvptx-none:hsa
@@ -331,8 +331,8 @@ events:
         Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.2' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-9QDOt0/gcc-9-9.4.0/debian/tmp-nvptx/usr,hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
         Thread model: posix
         gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4623d.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-         /usr/lib/gcc/x86_64-linux-gnu/9/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /home/reek/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_4623d.dir/CMakeCXXCompilerABI.cpp.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccQEPPnf.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ae503.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/9/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /home/reek/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_ae503.dir/CMakeCXXCompilerABI.cpp.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccgIu67D.s
         GNU C++14 (Ubuntu 9.4.0-1ubuntu1~20.04.2) version 9.4.0 (x86_64-linux-gnu)
         	compiled by GNU C version 9.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
         
@@ -356,15 +356,15 @@ events:
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: 3d1eba838554fa2348dba760e4770469
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4623d.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-         as -v --64 -o CMakeFiles/cmTC_4623d.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccQEPPnf.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ae503.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+         as -v --64 -o CMakeFiles/cmTC_ae503.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccgIu67D.s
         GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/local/cuda/lib64/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:./:/usr/local/cuda/lib64/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4623d.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-        Linking CXX executable cmTC_4623d
-        /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4623d.dir/link.txt --verbose=1
-        /usr/bin/c++  -v -rdynamic CMakeFiles/cmTC_4623d.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_4623d 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ae503.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+        Linking CXX executable cmTC_ae503
+        /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ae503.dir/link.txt --verbose=1
+        /usr/bin/c++  -v -rdynamic CMakeFiles/cmTC_ae503.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_ae503 
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper
@@ -376,10 +376,10 @@ events:
         gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) 
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/local/cuda/lib64/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:./:/usr/local/cuda/lib64/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_4623d' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-         /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccsL2JqI.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_4623d /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/local/cuda/lib64/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L. -L/usr/local/cuda/lib64 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_4623d.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
-        COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_4623d' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-        make[1]: Leaving directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-oWI2lz'
+        COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_ae503' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/cc6znHk6.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_ae503 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/local/cuda/lib64/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L. -L/usr/local/cuda/lib64 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_ae503.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_ae503' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+        make[1]: Leaving directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-mVdNcW'
         
       exitCode: 0
   -
@@ -419,13 +419,13 @@ events:
     message: |
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-oWI2lz']
+        ignore line: [Change Dir: '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-mVdNcW']
         ignore line: []
-        ignore line: [Run Build Command(s): /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_4623d/fast]
-        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_4623d.dir/build.make CMakeFiles/cmTC_4623d.dir/build]
-        ignore line: [make[1]: Entering directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-oWI2lz']
-        ignore line: [Building CXX object CMakeFiles/cmTC_4623d.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_4623d.dir/CMakeCXXCompilerABI.cpp.o -c /home/reek/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_ae503/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_ae503.dir/build.make CMakeFiles/cmTC_ae503.dir/build]
+        ignore line: [make[1]: Entering directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-mVdNcW']
+        ignore line: [Building CXX object CMakeFiles/cmTC_ae503.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_ae503.dir/CMakeCXXCompilerABI.cpp.o -c /home/reek/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:hsa]
@@ -434,8 +434,8 @@ events:
         ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.2' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-9QDOt0/gcc-9-9.4.0/debian/tmp-nvptx/usr hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
         ignore line: [Thread model: posix]
         ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4623d.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/9/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /home/reek/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_4623d.dir/CMakeCXXCompilerABI.cpp.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccQEPPnf.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ae503.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/9/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /home/reek/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_ae503.dir/CMakeCXXCompilerABI.cpp.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccgIu67D.s]
         ignore line: [GNU C++14 (Ubuntu 9.4.0-1ubuntu1~20.04.2) version 9.4.0 (x86_64-linux-gnu)]
         ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.0  MPFR version 4.0.2  MPC version 1.1.0  isl version isl-0.22.1-GMP]
         ignore line: []
@@ -459,15 +459,15 @@ events:
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: 3d1eba838554fa2348dba760e4770469]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4623d.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_4623d.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccQEPPnf.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ae503.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_ae503.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccgIu67D.s]
         ignore line: [GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/local/cuda/lib64/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:./:/usr/local/cuda/lib64/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4623d.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-        ignore line: [Linking CXX executable cmTC_4623d]
-        ignore line: [/home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4623d.dir/link.txt --verbose=1]
-        ignore line: [/usr/bin/c++  -v -rdynamic CMakeFiles/cmTC_4623d.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_4623d ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ae503.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        ignore line: [Linking CXX executable cmTC_ae503]
+        ignore line: [/home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ae503.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/c++  -v -rdynamic CMakeFiles/cmTC_ae503.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_ae503 ]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper]
@@ -479,13 +479,13 @@ events:
         ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) ]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/local/cuda/lib64/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:./:/usr/local/cuda/lib64/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_4623d' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-        link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccsL2JqI.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_4623d /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/local/cuda/lib64/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L. -L/usr/local/cuda/lib64 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_4623d.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_ae503' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/cc6znHk6.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_ae503 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/local/cuda/lib64/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L. -L/usr/local/cuda/lib64 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_ae503.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccsL2JqI.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/cc6znHk6.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -504,7 +504,7 @@ events:
           arg [-znow] ==> ignore
           arg [-zrelro] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_4623d] ==> ignore
+          arg [cmTC_ae503] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o]
@@ -519,7 +519,7 @@ events:
           arg [-L.] ==> ignore
           arg [-L/usr/local/cuda/lib64] ==> dir [/usr/local/cuda/lib64]
           arg [-L/usr/lib/gcc/x86_64-linux-gnu/9/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../..]
-          arg [CMakeFiles/cmTC_4623d.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_ae503.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
           arg [-lstdc++] ==> lib [stdc++]
           arg [-lm] ==> lib [m]
           arg [-lgcc_s] ==> lib [gcc_s]
@@ -561,33 +561,33 @@ events:
       - "/opt/ros/noetic/share/catkin/cmake/catkinConfig.cmake:20 (include)"
       - "CMakeLists.txt:60 (find_package)"
     directories:
-      source: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-xlBVtz"
-      binary: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-xlBVtz"
+      source: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-qpyDvU"
+      binary: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-qpyDvU"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
     buildResult:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-xlBVtz'
+        Change Dir: '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-qpyDvU'
         
-        Run Build Command(s): /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_7959c/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_7959c.dir/build.make CMakeFiles/cmTC_7959c.dir/build
-        make[1]: 进入目录“/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-xlBVtz”
-        Building C object CMakeFiles/cmTC_7959c.dir/src.c.o
-        /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_7959c.dir/src.c.o -c /home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-xlBVtz/src.c
-        Linking C executable cmTC_7959c
-        /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7959c.dir/link.txt --verbose=1
-        /usr/bin/cc -rdynamic CMakeFiles/cmTC_7959c.dir/src.c.o -o cmTC_7959c 
-        /usr/bin/ld: CMakeFiles/cmTC_7959c.dir/src.c.o: in function `main':
+        Run Build Command(s): /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_7563d/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_7563d.dir/build.make CMakeFiles/cmTC_7563d.dir/build
+        make[1]: 进入目录“/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-qpyDvU”
+        Building C object CMakeFiles/cmTC_7563d.dir/src.c.o
+        /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_7563d.dir/src.c.o -c /home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-qpyDvU/src.c
+        Linking C executable cmTC_7563d
+        /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7563d.dir/link.txt --verbose=1
+        /usr/bin/cc -rdynamic CMakeFiles/cmTC_7563d.dir/src.c.o -o cmTC_7563d 
+        /usr/bin/ld: CMakeFiles/cmTC_7563d.dir/src.c.o: in function `main':
         src.c:(.text+0x46): undefined reference to `pthread_create'
         /usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
         /usr/bin/ld: src.c:(.text+0x5e): undefined reference to `pthread_cancel'
         /usr/bin/ld: src.c:(.text+0x6f): undefined reference to `pthread_join'
         collect2: error: ld returned 1 exit status
-        make[1]: *** [CMakeFiles/cmTC_7959c.dir/build.make:99：cmTC_7959c] 错误 1
-        make[1]: 离开目录“/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-xlBVtz”
-        make: *** [Makefile:127：cmTC_7959c/fast] 错误 2
+        make[1]: *** [CMakeFiles/cmTC_7563d.dir/build.make:99：cmTC_7563d] 错误 1
+        make[1]: 离开目录“/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-qpyDvU”
+        make: *** [Makefile:127：cmTC_7563d/fast] 错误 2
         
       exitCode: 2
   -
@@ -602,29 +602,29 @@ events:
       - "/opt/ros/noetic/share/catkin/cmake/catkinConfig.cmake:20 (include)"
       - "CMakeLists.txt:60 (find_package)"
     directories:
-      source: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-ly0VKv"
-      binary: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-ly0VKv"
+      source: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-sWGZFX"
+      binary: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-sWGZFX"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
     buildResult:
       variable: "CMAKE_HAVE_PTHREADS_CREATE"
       cached: true
       stdout: |
-        Change Dir: '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-ly0VKv'
+        Change Dir: '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-sWGZFX'
         
-        Run Build Command(s): /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_bb8ab/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_bb8ab.dir/build.make CMakeFiles/cmTC_bb8ab.dir/build
-        make[1]: 进入目录“/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-ly0VKv”
-        Building C object CMakeFiles/cmTC_bb8ab.dir/CheckFunctionExists.c.o
-        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_bb8ab.dir/CheckFunctionExists.c.o -c /home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-ly0VKv/CheckFunctionExists.c
-        Linking C executable cmTC_bb8ab
-        /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bb8ab.dir/link.txt --verbose=1
-        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create -rdynamic CMakeFiles/cmTC_bb8ab.dir/CheckFunctionExists.c.o -o cmTC_bb8ab  -lpthreads 
+        Run Build Command(s): /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_04a36/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_04a36.dir/build.make CMakeFiles/cmTC_04a36.dir/build
+        make[1]: 进入目录“/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-sWGZFX”
+        Building C object CMakeFiles/cmTC_04a36.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_04a36.dir/CheckFunctionExists.c.o -c /home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-sWGZFX/CheckFunctionExists.c
+        Linking C executable cmTC_04a36
+        /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_04a36.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create -rdynamic CMakeFiles/cmTC_04a36.dir/CheckFunctionExists.c.o -o cmTC_04a36  -lpthreads 
         /usr/bin/ld: 找不到 -lpthreads
         collect2: error: ld returned 1 exit status
-        make[1]: *** [CMakeFiles/cmTC_bb8ab.dir/build.make:99：cmTC_bb8ab] 错误 1
-        make[1]: 离开目录“/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-ly0VKv”
-        make: *** [Makefile:127：cmTC_bb8ab/fast] 错误 2
+        make[1]: *** [CMakeFiles/cmTC_04a36.dir/build.make:99：cmTC_04a36] 错误 1
+        make[1]: 离开目录“/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-sWGZFX”
+        make: *** [Makefile:127：cmTC_04a36/fast] 错误 2
         
       exitCode: 2
   -
@@ -639,25 +639,25 @@ events:
       - "/opt/ros/noetic/share/catkin/cmake/catkinConfig.cmake:20 (include)"
       - "CMakeLists.txt:60 (find_package)"
     directories:
-      source: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-cPoaHv"
-      binary: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-cPoaHv"
+      source: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-HI4iKX"
+      binary: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-HI4iKX"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
     buildResult:
       variable: "CMAKE_HAVE_PTHREAD_CREATE"
       cached: true
       stdout: |
-        Change Dir: '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-cPoaHv'
+        Change Dir: '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-HI4iKX'
         
-        Run Build Command(s): /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_d630b/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_d630b.dir/build.make CMakeFiles/cmTC_d630b.dir/build
-        make[1]: 进入目录“/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-cPoaHv”
-        Building C object CMakeFiles/cmTC_d630b.dir/CheckFunctionExists.c.o
-        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_d630b.dir/CheckFunctionExists.c.o -c /home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-cPoaHv/CheckFunctionExists.c
-        Linking C executable cmTC_d630b
-        /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d630b.dir/link.txt --verbose=1
-        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create -rdynamic CMakeFiles/cmTC_d630b.dir/CheckFunctionExists.c.o -o cmTC_d630b  -lpthread 
-        make[1]: 离开目录“/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-cPoaHv”
+        Run Build Command(s): /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_9e971/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_9e971.dir/build.make CMakeFiles/cmTC_9e971.dir/build
+        make[1]: 进入目录“/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-HI4iKX”
+        Building C object CMakeFiles/cmTC_9e971.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_9e971.dir/CheckFunctionExists.c.o -c /home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-HI4iKX/CheckFunctionExists.c
+        Linking C executable cmTC_9e971
+        /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9e971.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create -rdynamic CMakeFiles/cmTC_9e971.dir/CheckFunctionExists.c.o -o cmTC_9e971  -lpthread 
+        make[1]: 离开目录“/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-HI4iKX”
         
       exitCode: 0
   -
@@ -668,27 +668,27 @@ events:
       - "/home/reek/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/CheckCXXCompilerFlag.cmake:34 (cmake_check_compiler_flag)"
       - "waypoint_generator/CMakeLists.txt:6 (CHECK_CXX_COMPILER_FLAG)"
     checks:
-      - "Performing Test COMPILER_SUPPORTS_CXX11"
+      - "Performing Test COMPILER_SUPPORTS_CXX14"
     directories:
-      source: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-4350dy"
-      binary: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-4350dy"
+      source: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-UmG4uX"
+      binary: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-UmG4uX"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
     buildResult:
-      variable: "COMPILER_SUPPORTS_CXX11"
+      variable: "COMPILER_SUPPORTS_CXX14"
       cached: true
       stdout: |
-        Change Dir: '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-4350dy'
+        Change Dir: '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-UmG4uX'
         
-        Run Build Command(s): /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_10161/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_10161.dir/build.make CMakeFiles/cmTC_10161.dir/build
-        make[1]: Entering directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-4350dy'
-        Building CXX object CMakeFiles/cmTC_10161.dir/src.cxx.o
-        /usr/bin/c++ -DCOMPILER_SUPPORTS_CXX11  -std=c++11 -o CMakeFiles/cmTC_10161.dir/src.cxx.o -c /home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-4350dy/src.cxx
-        Linking CXX executable cmTC_10161
-        /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_10161.dir/link.txt --verbose=1
-        /usr/bin/c++ -rdynamic CMakeFiles/cmTC_10161.dir/src.cxx.o -o cmTC_10161 
-        make[1]: Leaving directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-4350dy'
+        Run Build Command(s): /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_b167c/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_b167c.dir/build.make CMakeFiles/cmTC_b167c.dir/build
+        make[1]: Entering directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-UmG4uX'
+        Building CXX object CMakeFiles/cmTC_b167c.dir/src.cxx.o
+        /usr/bin/c++ -DCOMPILER_SUPPORTS_CXX14  -std=c++14 -o CMakeFiles/cmTC_b167c.dir/src.cxx.o -c /home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-UmG4uX/src.cxx
+        Linking CXX executable cmTC_b167c
+        /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b167c.dir/link.txt --verbose=1
+        /usr/bin/c++ -rdynamic CMakeFiles/cmTC_b167c.dir/src.cxx.o -o cmTC_b167c 
+        make[1]: Leaving directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-UmG4uX'
         
       exitCode: 0
   -
@@ -701,62 +701,25 @@ events:
     checks:
       - "Performing Test COMPILER_SUPPORTS_CXX0X"
     directories:
-      source: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-j3tLJz"
-      binary: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-j3tLJz"
+      source: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-4B23eU"
+      binary: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-4B23eU"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
     buildResult:
       variable: "COMPILER_SUPPORTS_CXX0X"
       cached: true
       stdout: |
-        Change Dir: '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-j3tLJz'
+        Change Dir: '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-4B23eU'
         
-        Run Build Command(s): /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_2a6ce/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_2a6ce.dir/build.make CMakeFiles/cmTC_2a6ce.dir/build
-        make[1]: Entering directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-j3tLJz'
-        Building CXX object CMakeFiles/cmTC_2a6ce.dir/src.cxx.o
-        /usr/bin/c++ -DCOMPILER_SUPPORTS_CXX0X  -std=c++0x -o CMakeFiles/cmTC_2a6ce.dir/src.cxx.o -c /home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-j3tLJz/src.cxx
-        Linking CXX executable cmTC_2a6ce
-        /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2a6ce.dir/link.txt --verbose=1
-        /usr/bin/c++ -rdynamic CMakeFiles/cmTC_2a6ce.dir/src.cxx.o -o cmTC_2a6ce 
-        make[1]: Leaving directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-j3tLJz'
-        
-      exitCode: 0
-...
-
----
-events:
-  -
-    kind: "try_compile-v1"
-    backtrace:
-      - "/home/reek/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
-      - "/home/reek/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
-      - "/home/reek/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/CheckCXXCompilerFlag.cmake:34 (cmake_check_compiler_flag)"
-      - "waypoint_generator/CMakeLists.txt:6 (CHECK_CXX_COMPILER_FLAG)"
-    checks:
-      - "Performing Test COMPILER_SUPPORTS_CXX14"
-    directories:
-      source: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-ZZGIAB"
-      binary: "/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-ZZGIAB"
-    cmakeVariables:
-      CMAKE_CXX_FLAGS: ""
-    buildResult:
-      variable: "COMPILER_SUPPORTS_CXX14"
-      cached: true
-      stdout: |
-        Change Dir: '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-ZZGIAB'
-        
-        Run Build Command(s): /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_de8c0/fast
-        make[1]: Entering directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-ZZGIAB'
-        /usr/bin/make  -f CMakeFiles/cmTC_de8c0.dir/build.make CMakeFiles/cmTC_de8c0.dir/build
-        make[2]: Entering directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-ZZGIAB'
-        Building CXX object CMakeFiles/cmTC_de8c0.dir/src.cxx.o
-        /usr/bin/c++ -DCOMPILER_SUPPORTS_CXX14  -std=c++14 -o CMakeFiles/cmTC_de8c0.dir/src.cxx.o -c /home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-ZZGIAB/src.cxx
-        Linking CXX executable cmTC_de8c0
-        /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de8c0.dir/link.txt --verbose=1
-        /usr/bin/c++ -rdynamic CMakeFiles/cmTC_de8c0.dir/src.cxx.o -o cmTC_de8c0 
-        make[2]: Leaving directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-ZZGIAB'
-        make[1]: Leaving directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-ZZGIAB'
+        Run Build Command(s): /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_dbc86/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_dbc86.dir/build.make CMakeFiles/cmTC_dbc86.dir/build
+        make[1]: Entering directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-4B23eU'
+        Building CXX object CMakeFiles/cmTC_dbc86.dir/src.cxx.o
+        /usr/bin/c++ -DCOMPILER_SUPPORTS_CXX0X  -std=c++0x -o CMakeFiles/cmTC_dbc86.dir/src.cxx.o -c /home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-4B23eU/src.cxx
+        Linking CXX executable cmTC_dbc86
+        /home/reek/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dbc86.dir/link.txt --verbose=1
+        /usr/bin/c++ -rdynamic CMakeFiles/cmTC_dbc86.dir/src.cxx.o -o cmTC_dbc86 
+        make[1]: Leaving directory '/home/reek/motion_planning/L2/astar/build/CMakeFiles/CMakeScratch/TryCompile-4B23eU'
         
       exitCode: 0
 ...
