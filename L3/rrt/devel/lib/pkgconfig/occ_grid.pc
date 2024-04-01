@@ -1,0 +1,8 @@
+prefix=/home/reek/motion_planning/L3/rrt/devel
+
+Name: occ_grid
+Description: Description of occ_grid
+Version: 0.0.0
+Cflags: -I/home/reek/motion_planning/L3/rrt/src/occ_grid/include
+Libs: -L${prefix}/lib -locc_grid
+Requires: roscpp std_msgs

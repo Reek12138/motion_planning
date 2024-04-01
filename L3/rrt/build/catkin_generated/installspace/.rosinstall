@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/reek/motion_planning/L3/rrt/install/setup.sh

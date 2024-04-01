@@ -1,0 +1,2 @@
+map_gen/map_generator:map_gen/mockamap:occ_grid:path_finder:rviz_plugins:self_msgs_and_srvs
+-DCATKIN_DEVEL_PREFIX=/home/reek/motion_planning/L3/rrt/devel -DCMAKE_INSTALL_PREFIX=/home/reek/motion_planning/L3/rrt/install -G Unix Makefiles

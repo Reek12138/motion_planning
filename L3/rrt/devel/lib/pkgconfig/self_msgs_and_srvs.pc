@@ -1,0 +1,8 @@
+prefix=/home/reek/motion_planning/L3/rrt/devel
+
+Name: self_msgs_and_srvs
+Description: Description of self_msgs_and_srvs
+Version: 0.0.0
+Cflags: -I/home/reek/motion_planning/L3/rrt/devel/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime std_msgs
