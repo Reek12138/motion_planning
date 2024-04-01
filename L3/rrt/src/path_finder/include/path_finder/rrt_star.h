@@ -283,7 +283,47 @@ namespace path_plan
         // ! Implement your own code inside the following loop
         for (auto &curr_node : neighbour_nodes)
         {
+          if(curr_node == nearest_node){
+            continue;
+          }
+          double curr_dist = calDist(curr_node->x, x_new);
+          double potential_dist_from_start = curr_node ->cost_from_start + curr_dist;
+          if(min_dist_from_start > potential_dist_from_start){
+            bool connected = map_ptr_->isSegmentValid(curr_node->x, x_new);
+            if(connected){
+              cost_from_p = curr_dist;
+              min_dist_from_start = potential_dist_from_start;
+              min_node = curr_node;
+            }
+          }
         }
+
+      //   if(use_chooseParent_) {
+      //     std::multimap<double, std::pair<RRTNode3DPtr, double>> mmp_neighbor_nodes;
+      //     for (auto &curr_node : neighbour_nodes)
+      //     {
+      //         double dist2curr_node = calDist(curr_node->x, x_new);
+      //         double dist_from_start = curr_node->cost_from_start + dist2curr_node;//不同前驱的更新的cost-to-come
+      //         double tmp_cost_from_p = dist2curr_node;//cost-from-parent，即edge_cost
+      //         mmp_neighbor_nodes.insert(std::make_pair(dist_from_start, std::make_pair(curr_node, tmp_cost_from_p)));
+      //     }
+      //     int mmp_count = 0;
+      //     for(auto &each_item : mmp_neighbor_nodes) {
+      //         ++mmp_count;
+      //         if(map_ptr_->isSegmentValid(x_new, each_item.second.first->x)) {
+      //             min_dist_from_start = each_item.first;
+      //             cost_from_p = each_item.second.second;
+      //             min_node = each_item.second.first;
+      //             ROS_DEBUG("\nmmp_count: %d, neighbor size: %lu, collision-free, \tcur_dist_from_start: %.10f, cur_cost_from_p: %.10f",
+      //                       mmp_count, neighbour_nodes.size(), each_item.first, each_item.second.second);
+      //             break;
+      //         } else {
+      //             ROS_DEBUG("\nmmp_count: %d, neighbor size: %lu, collisioned, continue, \tcur_dist_from_start: %.10f, cur_cost_from_p: %.10f",
+      //                       mmp_count, neighbour_nodes.size(), each_item.first, each_item.second.second);
+      //         }
+      //     }
+      // }
+
         // ! Implement your own code inside the above loop
 
         /* parent found within radius, then add a node to rrt and kd_tree */
@@ -329,7 +369,12 @@ namespace path_plan
         {
           double best_cost_before_rewire = goal_node_->cost_from_start;
           // ! -------------------------------------
-
+          double cost_new_node2neighbor = calDist(curr_node->x, new_node->x);
+          bool is_connected2neighbor = map_ptr_->isSegmentValid(new_node->x, goal_node_->x);
+          bool is_better_path = curr_node->cost_from_start > cost_new_node2neighbor + new_node->cost_from_start;
+          if(is_connected2neighbor && is_better_path){
+            changeNodeParent(curr_node, new_node, cost_new_node2neighbor);
+          }
           // ! -------------------------------------
           if (best_cost_before_rewire > goal_node_->cost_from_start)
           {
