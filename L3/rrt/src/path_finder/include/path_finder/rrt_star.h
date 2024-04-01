@@ -370,7 +370,7 @@ namespace path_plan
           double best_cost_before_rewire = goal_node_->cost_from_start;
           // ! -------------------------------------
           double cost_new_node2neighbor = calDist(curr_node->x, new_node->x);
-          bool is_connected2neighbor = map_ptr_->isSegmentValid(new_node->x, goal_node_->x);
+          bool is_connected2neighbor = map_ptr_->isSegmentValid(new_node->x, curr_node->x);
           bool is_better_path = curr_node->cost_from_start > cost_new_node2neighbor + new_node->cost_from_start;
           if(is_connected2neighbor && is_better_path){
             changeNodeParent(curr_node, new_node, cost_new_node2neighbor);
