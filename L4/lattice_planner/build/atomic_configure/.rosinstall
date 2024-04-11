@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/reek/motion_planning/L4/lattice_planner/devel/setup.sh
