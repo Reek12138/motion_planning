@@ -1,0 +1,2 @@
+lec5_hw
+-DCATKIN_DEVEL_PREFIX=/home/reek/motion_planning/L5/minimum_jerk_BIVP/devel -DCMAKE_INSTALL_PREFIX=/home/reek/motion_planning/L5/minimum_jerk_BIVP/install -G Unix Makefiles

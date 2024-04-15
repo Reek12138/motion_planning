@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/reek/motion_planning/L5/minimum_jerk_BIVP/devel/setup.sh
