@@ -1,0 +1,2 @@
+car_msgs:car_simulator:mpc_car
+-DCATKIN_DEVEL_PREFIX=/home/reek/motion_planning/L6/MPC/devel -DCMAKE_INSTALL_PREFIX=/home/reek/motion_planning/L6/MPC/install -G Unix Makefiles

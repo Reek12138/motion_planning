@@ -1,0 +1,8 @@
+prefix=/home/reek/motion_planning/L6/MPC/install
+
+Name: mpc_car
+Description: Description of mpc_car
+Version: 0.0.0
+Cflags: -I${prefix}/include -I/usr/include/eigen3
+Libs: -L${prefix}/lib 
+Requires: roscpp nodelet car_msgs
