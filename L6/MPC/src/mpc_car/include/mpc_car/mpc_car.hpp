@@ -72,30 +72,47 @@ class MpcCar {
   Eigen::SparseMatrix<double> Cu_, lu_, uu_;  // a delta vs constrains
   Eigen::SparseMatrix<double> Qx_;
 
-  void linearization(const double& phi,
-                     const double& v,
-                     const double& delta) {
-    // x_{k+1} = Ad * x_{k} + Bd * u_k + gd
-    // TODO: set values to Ad_, Bd_, gd_
-    // ...
-    Ad_ << 0, 0, -v*sin(phi) ,cos(phi),
-          0, 0, v*cos(phi), sin(phi),
-          0, 0, 0, tan(delta)/ll_,
-          0, 0, 0, 0;
+  // void linearization(const double& phi,
+  //                    const double& v,
+  //                    const double& delta) {
+  //   // x_{k+1} = Ad * x_{k} + Bd * u_k + gd
+  //   // TODO: set values to Ad_, Bd_, gd_
+  //   // ...
+  //   Ad_ << 0, 0, -v*sin(phi) ,cos(phi),
+  //         0, 0, v*cos(phi), sin(phi),
+  //         0, 0, 0, tan(delta)/ll_,
+  //         0, 0, 0, 0;
+  //   Ad_ = MatrixA::Identity() + dt_ * Ad_;
+
+  //   Bd_ << 0, 0,
+  //         0, 0,
+  //         0, v/(ll_ * pow(cos(delta), 2)),
+  //         1, 0;
+
+  //   Bd_ = dt_ * Bd_;
+
+  //   gd_ << v * phi * sin(phi),
+  //         -v * phi * cos(phi),
+  //         -v * delta /(ll_ * pow(cos(delta), 2)),
+  //         0;
+  //   gd_ = dt_ * gd_; 
+  //   return;
+  // }
+
+  void linearization(const double &phi, const double &v, const double &delta) {
+    Ad_ <<  0, 0, -v*sin(phi), cos(phi),
+            0, 0,  v*cos(phi), sin(phi),
+            0, 0, 0, tan(delta) / ll_,
+            0, 0, 0, 0;
+    Bd_ <<  0, 0,
+            0, 0,
+            0, v/(ll_*pow(cos(delta),2)),
+            1, 0;
+    gd_ <<  v*phi*sin(phi), -v*phi*cos(phi), -v*delta/(ll_*pow(cos(delta),2)), 0;
+ 
     Ad_ = MatrixA::Identity() + dt_ * Ad_;
-
-    Bd_ << 0, 0,
-          0, 0,
-          0, v/(ll_ * pow(cos(delta), 2)),
-          1, 0;
-
     Bd_ = dt_ * Bd_;
-
-    gd_ << v * phi * sin(phi),
-          -v * phi * cos(phi),
-          -v * delta /(ll_ * pow(cos(delta), 2)),
-          0;
-    gd_ = dt_ * gd_; 
+    gd_ = dt_ * gd_;
     return;
   }
 
@@ -147,53 +164,53 @@ class MpcCar {
     }
     return x0_delay;
   }
-  //   VectorX compensateDelay(const VectorX& x0) {
-  //     VectorX x0_delay = x0;
-  //     if (delay_ == 0)
-  //     {
-  //       return x0_delay;
-  //     }
-  //     Eigen::MatrixXd BB, AA, gg, x0_pred;
-  //     int tau = std::ceil(delay_ / dt_);
-  //     BB.setZero(n * tau, m * tau);
-  //     AA.setZero(n * tau, n);
-  //     gg.setZero(n * tau, 1);
-  //     x0_pred.setZero(n * tau, 1);
-  //     double s0 = s_.findS(x0.head(2));
-  //     double phi, v, delta;
-  //     double last_phi = x0(2);
+    // VectorX compensateDelay(const VectorX& x0) {
+    //   VectorX x0_delay = x0;
+    //   if (delay_ == 0)
+    //   {
+    //     return x0_delay;
+    //   }
+    //   Eigen::MatrixXd BB, AA, gg, x0_pred;
+    //   int tau = std::ceil(delay_ / dt_);
+    //   BB.setZero(n * tau, m * tau);
+    //   AA.setZero(n * tau, n);
+    //   gg.setZero(n * tau, 1);
+    //   x0_pred.setZero(n * tau, 1);
+    //   double s0 = s_.findS(x0.head(2));
+    //   double phi, v, delta;
+    //   double last_phi = x0(2);
   
-  //     for (int i = 0; i < tau; ++i) {
-  //       calLinPoint(s0, phi, v, delta);
-  //       if (phi - last_phi > M_PI) {
-  //         phi -= 2 * M_PI;
-  //       } else if (phi - last_phi < -M_PI) {
-  //         phi += 2 * M_PI;
-  //       }
-  //       last_phi = phi;
-  //       linearization(phi, v, delta);
-  //       if (i == 0) {
-  //           BB.block(0, 0, n, m) = Bd_;
-  //           AA.block(0, 0, n, n) = Ad_;
-  //           gg.block(0, 0, n, 1) = gd_;
-  //         } else {
-  //           BB.block(i * n, i * m, n, m) = Bd_;
-  //           for (int j = i - 1; j >= 0; --j){
-  //             BB.block(i * n, j * m, n, m) = Ad_ * BB.block((i - 1) * n, j * m, n, m);
-  //           }
-  //           AA.block(i * n, 0, n, n) = Ad_ * AA.block((i - 1) * n, 0, n, n);
-  //           gg.block(i * n, 0, n, 1) = Ad_ * gg.block((i - 1) * n, 0, n, 1) + gd_;
-  //         }
-  //       }
-  //     Eigen::VectorXd uu(m * tau, 1);
-  //     for (double t = delay_; t > 0; t -= dt_) {
-  //       int i = std::ceil(t / dt_);
-  //       uu.coeffRef((tau - i) * m + 0, 0) = historyInput_[i - 1][0];
-  //       uu.coeffRef((tau - i) * m + 1, 0) = historyInput_[i - 1][1];
-  //     }
-  //     x0_pred = BB * uu + AA * x0 + gg;
-  //     x0_delay = x0_pred.block((tau - 1) * n, 0, n, 1);
-  //     return x0_delay;
+    //   for (int i = 0; i < tau; ++i) {
+    //     calLinPoint(s0, phi, v, delta);
+    //     if (phi - last_phi > M_PI) {
+    //       phi -= 2 * M_PI;
+    //     } else if (phi - last_phi < -M_PI) {
+    //       phi += 2 * M_PI;
+    //     }
+    //     last_phi = phi;
+    //     linearization(phi, v, delta);
+    //     if (i == 0) {
+    //         BB.block(0, 0, n, m) = Bd_;
+    //         AA.block(0, 0, n, n) = Ad_;
+    //         gg.block(0, 0, n, 1) = gd_;
+    //       } else {
+    //         BB.block(i * n, i * m, n, m) = Bd_;
+    //         for (int j = i - 1; j >= 0; --j){
+    //           BB.block(i * n, j * m, n, m) = Ad_ * BB.block((i - 1) * n, j * m, n, m);
+    //         }
+    //         AA.block(i * n, 0, n, n) = Ad_ * AA.block((i - 1) * n, 0, n, n);
+    //         gg.block(i * n, 0, n, 1) = Ad_ * gg.block((i - 1) * n, 0, n, 1) + gd_;
+    //       }
+    //     }
+    //   Eigen::VectorXd uu(m * tau, 1);
+    //   for (double t = delay_; t > 0; t -= dt_) {
+    //     int i = std::ceil(t / dt_);
+    //     uu.coeffRef((tau - i) * m + 0, 0) = historyInput_[i - 1][0];
+    //     uu.coeffRef((tau - i) * m + 1, 0) = historyInput_[i - 1][1];
+    //   }
+    //   x0_pred = BB * uu + AA * x0 + gg;
+    //   x0_delay = x0_pred.block((tau - 1) * n, 0, n, 1);
+    //   return x0_delay;
   // }
 
  public:
@@ -261,7 +278,7 @@ class MpcCar {
       // ...
       Cu_.coeffRef(i * 3 + 1, i * m + 1) = 1;
       lu_.coeffRef(i * 3 + 1, 0) = -delta_max_;
-      uu_.coeffRef(i * 3 + 0, 0) = delta_max_;
+      uu_.coeffRef(i * 3 + 1, 0) = delta_max_;
 
       Cu_.coeffRef(i * 3 + 2, i * m + 1) = 1;
       if(i>0){Cu_.coeffRef(i*3+2, (i-1)*m+1) = -1;}
@@ -274,6 +291,26 @@ class MpcCar {
       Cx_.coeffRef(i, i*n+3) = 1;
       lx_.coeffRef(i,0) = -v_max_;
       ux_.coeffRef(i,0) = v_max_;
+
+      // Cu_.coeffRef(i * 3 + 0, i * m + 0) = 1;
+      // lu_.coeffRef(i * 3 + 0, 0) = -a_max_;
+      // uu_.coeffRef(i * 3 + 0, 0) = a_max_;
+      // // ...
+      // Cu_.coeffRef(i * 3 + 1, i * m + 1) = 1;
+      // lu_.coeffRef(i * 3 + 1, 0) = -delta_max_;
+      // uu_.coeffRef(i * 3 + 1, 0) = delta_max_;
+ 
+      // Cu_.coeffRef(i * 3 + 2, i * m + 1) = 1;
+      // if (i > 0){
+      //   Cu_.coeffRef(i * 3 + 2, (i - 1) * m + 1) = -1;
+      // }
+      // lu_.coeffRef(i * 3 + 2, 0) = -ddelta_max_ * dt_;
+      // uu_.coeffRef(i * 3 + 2, 0) = ddelta_max_ * dt_;
+ 
+      // // -v_max <= v <= v_max
+      // Cx_.coeffRef(i, i * n + 3) = 1;
+      // lx_.coeffRef(i, 0) = -v_max_;
+      // ux_.coeffRef(i, 0) = v_max_;
       
     }
     // set predict mats size
@@ -330,12 +367,19 @@ class MpcCar {
       } else {
         // TODO: set BB AA gg
         // ...
-        BB.block(n*i, m*i, n, m) = Bd_;
-        for(int j=i-1; j>=0; --j){
-          BB.block(n*i, m*j, n, m) = Ad_*BB.block(n*(i-1), m*j, n, m);
+        // BB.block(n*i, m*i, n, m) = Bd_;
+        // for(int j=i-1; j>=0; --j){
+        //   BB.block(n*i, m*j, n, m) = Ad_*BB.block(n*(i-1), m*j, n, m);
+        // }
+        // AA.block(n*i, 0, n, n) = Ad_ * AA.block(n*(i-1), 0, n, n);
+        // gg.block(n*i, 0, n, 1) = Ad_ * gg.block(n*(i-1), 0, n, 1)+gd_;
+
+        BB.block(i * n, i * m, n, m) = Bd_;
+        for (int j = i - 1; j >= 0; --j){
+          BB.block(i * n, j * m, n, m) = Ad_ * BB.block((i - 1) * n, j * m, n, m);
         }
-        AA.block(n*i, 0, n, n) = Ad_ * AA.block(n*(i-1), 0, n, n);
-        gg.block(n*i, 0, n, 1) = Ad_ * gg.block(n*(i-1), 0, n, 1)+gd_;
+        AA.block(i * n, 0, n, n) = Ad_ * AA.block((i - 1) * n, 0, n, n);
+        gg.block(i * n, 0, n, 1) = Ad_ * gg.block((i - 1) * n, 0, n, 1) + gd_;
       }
       // TODO: set qx
       Eigen::Vector2d xy = s_(s0);  // reference (x_r, y_r)
@@ -351,12 +395,16 @@ class MpcCar {
 
       // qx.coeffRef(...
       // ...
-      qx.coeffRef(n*i+0, 0) = -Qx_.coeffRef(n*i+0, n*i+0) * xy(0);
-      qx.coeffRef(n*i+1, 0) = -Qx_.coeffRef(n*i+1, n*i+1) * xy(1);
-      qx.coeffRef(n*i+2, 0) = -Qx_.coeffRef(n*i+2, n*i+2) * phi;
-      // qx.coeffRef(n*i+3, 0) = 0;
-      qx.coeffRef(i*n+3, 0) = -Qx_.coeffRef(i * n + 3, i * n + 3) * v;
+      // qx.coeffRef(n*i+0, 0) = -Qx_.coeffRef(n*i+0, n*i+0) * xy(0);
+      // qx.coeffRef(n*i+1, 0) = -Qx_.coeffRef(n*i+1, n*i+1) * xy(1);
+      // qx.coeffRef(n*i+2, 0) = -Qx_.coeffRef(n*i+2, n*i+2) * phi;
+      // // qx.coeffRef(n*i+3, 0) = 0;
+      // qx.coeffRef(i*n+3, 0) = -Qx_.coeffRef(i * n + 3, i * n + 3) * v;
 
+      qx.coeffRef(i * n + 0, 0) = -Qx_.coeffRef(i * n + 0, i * n + 0) * xy(0);
+      qx.coeffRef(i * n + 1, 0) = -Qx_.coeffRef(i * n + 1, i * n + 1) * xy(1);
+      qx.coeffRef(i * n + 2, 0) = -Qx_.coeffRef(i * n + 2, i * n + 2) * phi;
+      qx.coeffRef(i * n + 3, 0) = -Qx_.coeffRef(i * n + 3, i * n + 3) * v;
 
       s0 += desired_v_ * dt_;
       s0 = s0 < s_.arcL() ? s0 : s_.arcL();

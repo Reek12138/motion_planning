@@ -6,4 +6,4 @@ L2 基于ros实现astar
 L3 rtt*   
 L4 latice planner    
 L5 mini_jerk   
-L6 MPC    
+L6 MPC 需要把osqp里的build删除再编译    
