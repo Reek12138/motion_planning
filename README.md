@@ -21,6 +21,6 @@ L6 MPC 需要把osqp里的build删除再编译
 L7 集群规划介绍 包括cbs、ecbs、vo类       
     https://www.shenlanxueyuan.com/course/633/task/24679/show    
     https://blog.csdn.net/qq_37746927/article/details/136261499?spm=1001.2014.3001.5502   
-L8 fastplanner egoplanner 框架、代码介绍
+L8 fastplanner egoplanner 框架、代码介绍   
     https://www.shenlanxueyuan.com/course/633/task/24686/show   
 L9 大作业
