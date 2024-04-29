@@ -400,6 +400,41 @@ int AstarPathFinder::safeCheck(MatrixXd polyCoeff, VectorXd time) {
    * STEP 3.3:  finish the sareCheck()
    *
    * **/
+  // PolyCoeff(m,3 * 6)
+  // | c0_x c1_x c2_x c3_x c4_x c5_x c0_y c1_y c2_y c3_y c4_y c5_y c0_z c1_z c2_z c3_z c4_z c5_z|
+  // .......第n行就是第n段轨迹的系数
+  // | c0_x c1_x c2_x c3_x c4_x c5_x c0_y c1_y c2_y c3_y c4_y c5_y c0_z c1_z c2_z c3_z c4_z c5_z|
+  //路径是index,用isFree()和isOccupied()
+
+  // 遍历每一段轨迹
+    for (int i = 0; i < polyCoeff.rows(); ++i) {
+        // 获取当前段的系数和时间
+        double t_segment = time(i); // 当前段的持续时间
+        // MatrixXd coeffs = polyCoeff.row(i).reshaped(6, 3); // 重新塑形为6行3列，每列对应x,y,z
+        MatrixXd coeffs(6, 3); // 创建一个6行3列的矩阵
+        coeffs.col(0) = polyCoeff.block(i, 0, 1, 6).transpose(); // X 维度系数
+        coeffs.col(1) = polyCoeff.block(i, 6, 1, 6).transpose(); // Y 维度系数
+        coeffs.col(2) = polyCoeff.block(i, 12, 1, 6).transpose(); // Z 维度系数
+
+        // 采样当前段的轨迹以检查安全性
+        double t_step = 0.2; // 每0.1秒采样一次
+        for (double t = 0; t <= t_segment; t += t_step) {
+            Vector3d point; // 存储当前采样点的位置
+            // 对每个维度（x, y, z）计算轨迹上的点
+            for (int dim = 0; dim < 3; ++dim) {
+                point(dim) = coeffs(0, dim) + coeffs(1, dim) * t + coeffs(2, dim) * pow(t, 2) +
+                             coeffs(3, dim) * pow(t, 3) + coeffs(4, dim) * pow(t, 4) + coeffs(5, dim) * pow(t, 5);
+            }
+            Vector3i point_index = coord2gridIndex(point);
+            // 检查该点是否在被障碍物占据的区域
+            if (isOccupied(point_index)) {
+                unsafe_segment = i; // 记录不安全的段
+                ROS_INFO("\033[35mUnsafe segment(%d)\033[0m",i);
+                return unsafe_segment; // 一旦发现不安全即返回
+            }
+        }
+    }
+  
 
   return unsafe_segment;
 }

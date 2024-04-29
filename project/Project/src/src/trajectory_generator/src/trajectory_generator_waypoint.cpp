@@ -88,7 +88,7 @@ Eigen::MatrixXd TrajectoryGeneratorWaypoint::PolyQPGeneration(
 
   Eigen::MatrixX3d coefficientMatrix = Eigen::MatrixXd::Zero(6 * pieceNum, 3);
 
-  //这里直接把minium_jerk的作业用到这里
+  //这里直接把minium_jerk的作业用到这里，后期有空尝试用armadillo?
   // ------------------------ Put your solution below ------------------------
   Eigen::MatrixXd M = Eigen::MatrixXd::Zero(6*pieceNum, 6*pieceNum);
   Eigen::MatrixXd b = Eigen::MatrixXd::Zero(6*pieceNum, 3);

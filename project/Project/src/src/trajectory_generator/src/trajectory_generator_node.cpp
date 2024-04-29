@@ -350,6 +350,50 @@ void trajOptimization(Eigen::MatrixXd path) {
      * part 3.5
      *
      * **/
+    //这里要在有碰撞的区间内插点
+    //Vector<Vector3d> grid_path里包含了所有waypoint
+    Vector3d start_point = repath.row(unsafe_segment);
+    Vector3d end_point = repath.row(unsafe_segment + 1);
+
+    // 执行A*搜索
+    _astar_path_finder->AstarGraphSearch(start_point, end_point);
+    auto new_grid_path = _astar_path_finder->getPath();
+    ROS_INFO("\033[35m============re-astar %d==============\033[0m",count);
+    
+    // 使用RDP算法简化路径
+    new_grid_path = _astar_path_finder->pathSimplify(new_grid_path, _path_resolution/1.5);
+    MatrixXd new_path(new_grid_path.size(), 3);
+    for (int k = 0; k < int(new_grid_path.size()); k++) {
+      new_path.row(k) = new_grid_path[k];
+    }
+    ROS_INFO("\033[35m============re-simplify %d==============\033[0m",count);
+
+    // 替换原路径中不安全的段
+    // 注意：这里可能需要更复杂的逻辑来处理路径数组的拼接
+    if (new_path.rows() > 2) {
+      // 重新构建完整路径，需要删除不安全段之间的旧路径，插入新路径
+      MatrixXd temp_path(repath.rows() - 2 + new_path.rows(), 3);
+      temp_path << repath.block(0, 0, unsafe_segment + 1, 3),  // 保留原路径的起始段
+                  new_path.block(1, 0, new_path.rows() - 2, 3),  // 插入新路径（去除首尾重复点）
+                  repath.block(unsafe_segment + 1, 0, repath.rows() - unsafe_segment - 1, 3);  // 保留原路径的结束段
+      repath = temp_path;
+    }
+    ROS_INFO("\033[35m============re-path %d==============\033[0m",count);
+    _polyTime = timeAllocation(repath);
+    _polyCoeff =
+      _trajGene->PolyQPGeneration(_dev_order, repath, vel, acc, _polyTime);
+    ROS_INFO("\033[35m============re-caculate C and T %d==============\033[0m",count);
+
+    // 重新检查路径安全性
+    unsafe_segment = _astar_path_finder->safeCheck(_polyCoeff, _polyTime);  // 假设safeCheck现在可以处理整个路径并返回不安全的段索引
+    ROS_INFO("\033[35m============re-safecheck %d==============\033[0m",count);
+
+    count++;
+    if (count > 10) {  // 防止无限循环
+      ROS_WARN("Reached maximum number of re-planning attempts");
+      break;
+    }
+
   }
   // visulize path and trajectory
   visPath(repath);
