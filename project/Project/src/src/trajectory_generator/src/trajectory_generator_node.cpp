@@ -18,6 +18,9 @@
 #include <visualization_msgs/Marker.h>
 #include <visualization_msgs/MarkerArray.h>
 
+#include <sensor_msgs/Imu.h>
+
+
 // Useful customized headers
 #include "Astar_searcher.h"
 #include "backward.hpp"
@@ -41,11 +44,11 @@ double _Vel, _Acc;
 int _dev_order, _min_order;
 
 // ros related
-ros::Subscriber _map_sub, _pts_sub, _odom_sub;
+ros::Subscriber _map_sub, _pts_sub, _odom_sub, _imu_sub;
 ros::Publisher _traj_vis_pub, _traj_pub, _path_vis_pub;
 
 // for planning
-Vector3d odom_pt, odom_vel, start_pt, target_pt, start_vel;
+Vector3d odom_pt, odom_vel, start_pt, target_pt, start_vel, start_acc, imu_acc;
 int _poly_num1D;
 MatrixXd _polyCoeff;
 VectorXd _polyTime;
@@ -53,6 +56,7 @@ double time_duration;
 ros::Time time_traj_start;
 bool has_odom = false;
 bool has_target = false;
+bool has_imu = false;
 
 // for replanning
 enum STATE {
@@ -73,6 +77,7 @@ void visTrajectory(MatrixXd polyCoeff, VectorXd time);
 void visPath(MatrixXd nodes);
 void trajOptimization(Eigen::MatrixXd path);
 void rcvOdomCallback(const nav_msgs::Odometry::ConstPtr &odom);
+void rcvImuCallback(const sensor_msgs::Imu::ConstPtr &imu);
 void rcvWaypointsCallback(const nav_msgs::Path &wp);
 void rcvPointCloudCallBack(const sensor_msgs::PointCloud2 &pointcloud_map);
 void trajPublish(MatrixXd polyCoeff, VectorXd time);
@@ -80,8 +85,10 @@ bool trajGeneration();
 VectorXd timeAllocation(MatrixXd Path);
 Vector3d getPos(double t_cur);
 Vector3d getVel(double t_cur);
+Vector3d getAcc(double t_cur);
 
 // change the state to the new state
+// 用于改变当前执行状态（例如从等待目标转到生成新轨迹），并输出状态改变的日志信息
 void changeState(STATE new_state, string pos_call) {
   string state_str[5] = {"INIT", "WAIT_TARGET", "GEN_NEW_TRAJ", "EXEC_TRAJ",
                          "REPLAN_TRAJ"};
@@ -92,12 +99,14 @@ void changeState(STATE new_state, string pos_call) {
        << endl;
 }
 
+// 打印当前的执行状态，帮助监控节点的运行状态
 void printState() {
   string state_str[5] = {"INIT", "WAIT_TARGET", "GEN_NEW_TRAJ", "EXEC_TRAJ",
                          "REPLAN_TRAJ"};
   cout << "[Clock]: state: " + state_str[int(exec_state)] << endl;
 }
 
+// 接收来自里程计的数据，更新无人机的当前位置和速度信息
 void rcvOdomCallback(const nav_msgs::Odometry::ConstPtr &odom) {
   odom_pt(0) = odom->pose.pose.position.x;
   odom_pt(1) = odom->pose.pose.position.y;
@@ -110,7 +119,18 @@ void rcvOdomCallback(const nav_msgs::Odometry::ConstPtr &odom) {
   has_odom = true;
 }
 
+void rcvImuCallback(const sensor_msgs::Imu::ConstPtr &imu){
+  imu_acc(0) = imu->linear_acceleration.x;
+  imu_acc(1) = imu->linear_acceleration.y;
+  imu_acc(2) = imu->linear_acceleration.z;
+
+  has_imu = true;
+
+}
+
 // Control the State changes
+//定时器回调函数，定期检查和更新无人机的状态，决定是否需要生成新的轨迹或重新规划现有轨迹。
+//根据当前的状态（如是否有目标位置，是否有里程计数据）和时间条件（如轨迹执行的持续时间），控制状态机的转换。
 void execCallback(const ros::TimerEvent &e) {
   static int num = 0;
   num++;
@@ -156,17 +176,27 @@ void execCallback(const ros::TimerEvent &e) {
     double t_replan = ros::Duration(1, 0).toSec();
     t_cur = min(time_duration, t_cur);
 
+    // 如果当前时间接近或超过了轨迹的总持续时间，这表示轨迹执行即将完成或已完成。
+    // 设置has_target为false，表明当前没有新的目标，然后将状态改变为WAIT_TARGET，等待新的目标设置
     if (t_cur > time_duration - 1e-2) {
       has_target = false;
       changeState(WAIT_TARGET, "STATE");
       return;
-    } else if ((target_pt - odom_pt).norm() < no_replan_thresh) {
+    } 
+    // 当前位置接近目标位置，不进行任何操作，继续执行当前轨迹
+    else if ((target_pt - odom_pt).norm() < no_replan_thresh) {
       return;
-    } else if ((start_pt - odom_pt).norm() < replan_thresh) {
+    } 
+    // 当前位置仍然非常接近起点，不进行任何操作
+    else if ((start_pt - odom_pt).norm() < replan_thresh) {
       return;
-    } else if (t_cur < t_replan) {
+    } 
+    // 当前时间小于设定的重规划时间间隔，则不进行重规划
+    else if (t_cur < t_replan) {
       return;
-    } else {
+    } 
+    // 默认的重规划触发
+    else {
       changeState(REPLAN_TRAJ, "STATE");
     }
     break;
@@ -178,6 +208,7 @@ void execCallback(const ros::TimerEvent &e) {
     t_cur = t_delta + t_cur;
     start_pt = getPos(t_cur);
     start_vel = getVel(t_cur);
+    start_acc = getAcc(t_cur);
     bool success = trajGeneration();
     if (success)
       changeState(EXEC_TRAJ, "STATE");
@@ -188,6 +219,7 @@ void execCallback(const ros::TimerEvent &e) {
   }
 }
 
+// 接收目标航点，更新目标位置，并根据当前状态触发轨迹生成或重规划
 void rcvWaypointsCallBack(const nav_msgs::Path &wp) {
   if (wp.poses[0].pose.position.z < 0.0)
     return;
@@ -196,6 +228,7 @@ void rcvWaypointsCallBack(const nav_msgs::Path &wp) {
   ROS_INFO("[node] receive the planning target");
   start_pt = odom_pt;
   start_vel = odom_vel;
+  start_acc = imu_acc;
   has_target = true;
 
   if (exec_state == WAIT_TARGET)
@@ -204,6 +237,7 @@ void rcvWaypointsCallBack(const nav_msgs::Path &wp) {
     changeState(REPLAN_TRAJ, "STATE");
 }
 
+// 接收来自传感器（如激光雷达）的点云数据，用于更新障碍物信息
 void rcvPointCloudCallBack(const sensor_msgs::PointCloud2 &pointcloud_map) {
 
   pcl::PointCloud<pcl::PointXYZ> cloud;
@@ -226,6 +260,8 @@ void rcvPointCloudCallBack(const sensor_msgs::PointCloud2 &pointcloud_map) {
 // trajectory generation: front-end + back-end
 // front-end : A* search method
 // back-end  : Minimum snap trajectory generation
+// 负责整个轨迹生成过程，包括调用A*算法进行路径搜索，使用RDP算法简化路径，
+// 以及调用轨迹优化函数生成最终轨迹。最后将生成的轨迹发布出去，并返回轨迹生成是否成功
 bool trajGeneration() {
   /**
    *
@@ -267,12 +303,14 @@ bool trajGeneration() {
     return false;
 }
 
+// 对简化后的路径进行轨迹优化，生成一个满足动力学和安全性要求的平滑轨迹。包括时间分配和多项式轨迹生成
 void trajOptimization(Eigen::MatrixXd path) {
   // if( !has_odom ) return;
   MatrixXd vel = MatrixXd::Zero(2, 3);
   MatrixXd acc = MatrixXd::Zero(2, 3);
 
   vel.row(0) = start_vel;
+  acc.row(0) = start_acc;
 
   /**
    *
@@ -287,6 +325,7 @@ void trajOptimization(Eigen::MatrixXd path) {
    * trajectory
    *
    * **/
+  // ROS_INFO("test PolyQPGeneration");
   _polyCoeff =
       _trajGene->PolyQPGeneration(_dev_order, path, vel, acc, _polyTime);
 
@@ -317,6 +356,7 @@ void trajOptimization(Eigen::MatrixXd path) {
   visTrajectory(_polyCoeff, _polyTime);
 }
 
+// 将优化后的轨迹发布到ROS主题
 void trajPublish(MatrixXd polyCoeff, VectorXd time) {
   if (polyCoeff.size() == 0 || time.size() == 0) {
     ROS_WARN("[trajectory_generator_waypoint] empty trajectory, nothing to "
@@ -333,7 +373,8 @@ void trajPublish(MatrixXd polyCoeff, VectorXd time) {
 
   traj_msg.header.seq = count;
   traj_msg.header.stamp = ros::Time::now();
-  traj_msg.header.frame_id = std::string("/world");
+  // traj_msg.header.frame_id = std::string("/world");
+  traj_msg.header.frame_id = std::string("world");
   traj_msg.trajectory_id = count;
   traj_msg.action = quadrotor_msgs::PolynomialTrajectory::ACTION_ADD;
 
@@ -369,17 +410,103 @@ void trajPublish(MatrixXd polyCoeff, VectorXd time) {
   _traj_pub.publish(traj_msg);
 }
 
-VectorXd timeAllocation(MatrixXd Path) {
-  VectorXd time(Path.rows() - 1);
+// 计算在给定距离、速度和加速度下，使用梯形速度剖面所需的时间
+double timeTrapzVel(const double dist,
+                    const double vel,
+                    const double acc)
+{
+    const double t = vel / acc;
+    const double d = 0.5 * acc * t * t;
 
+    if (dist < d + d)
+    {
+        return 2.0 * sqrt(dist / acc);
+    }
+    else
+    {
+        return 2.0 * t + (dist - 2.0 * d) / vel;
+    }
+}
+// 对于给定的路径，分配每段路径的飞行时间
+VectorXd timeAllocation(MatrixXd Path) {
+  // VectorXd time(Path.rows() - 1);
+  int n_segments = Path.rows() - 1;
+  VectorXd time(n_segments);
+
+  double total_distance = 0.0;
+  VectorXd segment_lengths(n_segments);
+  for(int i=0; i<n_segments; i++){
+    segment_lengths(i) = (Path.row(i+1) - Path.row(i)).norm();
+    total_distance += segment_lengths(i);
+    time(i) = timeTrapzVel(segment_lengths(i), _Vel, _Acc);
+    ROS_INFO("\033[35msegment(%d) = %f ,time(%d) = %f\033[0m", i, segment_lengths(i), i, time(i));
+  }
+  double t_acc = _Vel / _Acc;
+  double s_acc = 0.5 * _Acc * std::pow(t_acc, 2);
+  std::cout << "s_acc = " << s_acc << std::endl;
+  std::cout << "total_distance = " << total_distance << std::endl;
+
+  // if(total_distance <= 2 * s_acc){
+  //   double t_all_half = std::sqrt(total_distance / _Acc);
+  //   double t_now = 0.0;
+  //   double v_now = 0.0;
+  //   bool acc_flag = false;
+  //   for(int i=0; i<n_segments; i++){
+  //     if(t_now < t_all_half){
+  //       double t_assumue = (-v_now + std::sqrt(std::pow(v_now,2) + 2*_Acc*segment_lengths(i)))/(_Acc);
+  //       if(t_now + t_assumue <= t_all_half){
+  //         time(i) = t_assumue;
+  //         t_now += t_assumue;
+  //         v_now += _Acc * t_assumue;
+  //       }
+  //       else if(t_now + t_assumue > t_all_half){
+  //         double t_up = t_all_half - t_now;
+  //         double rest_dis = segment_lengths(i) - (v_now * t_up + 0.5 *_Acc * std::pow(t_up,2));
+  //         ROS_INFO("rest_dis = %d",rest_dis);
+  //         double v_max = v_now + _Acc * t_up;
+  //         double t_down = (v_max - std::sqrt(std::pow(v_max,2) - 2*_Acc*rest_dis))/(_Acc);
+  //         t_now += (t_up + t_down);
+  //         v_now += v_max -_Acc * t_down;
+  //         time(i) = t_up + t_down;
+  //       }
+  //     }
+  //     else if(t_now >= t_all_half){
+  //       double t_assume = (v_now - std::sqrt(std::pow(v_now,2) - 2*_Acc*segment_lengths(i)))/(_Acc);
+  //       if(t_now + t_assume <= 2*t_all_half){
+  //         time(i) = t_assume;
+  //         t_now += t_assume;
+  //         v_now -= _Acc * t_assume;
+  //       }
+  //       else{
+  //         double t_end = v_now/_Acc;
+  //         time(i) = t_end;
+  //         t_now += t_end;
+  //         v_now -= _Acc * t_end;
+  //       }
+  //     }
+      
+  //   }
+  // }
+  // else if(total_distance > 2 * s_acc){
+
+  // }
+
+  // for(int i=0; i<n_segments; i++){
+
+  //   double t_sum = total_distance / (1.0 * _Vel);
+  //   time(i) = (t_sum * segment_lengths(i)) / (total_distance);
+  //   std::cout << "time" << i << " = " << time(i) <<std::endl;
+  // }
   return time;
 }
 
+// 可视化生成的轨迹，将轨迹以3D点的形式发布，用于在RViz等工具中显示
 void visTrajectory(MatrixXd polyCoeff, VectorXd time) {
   visualization_msgs::Marker _traj_vis;
 
   _traj_vis.header.stamp = ros::Time::now();
-  _traj_vis.header.frame_id = "/world";
+  // _traj_vis.header.frame_id = "/world";
+  _traj_vis.header.frame_id = "world";
 
   _traj_vis.ns = "traj_node/trajectory";
   _traj_vis.id = 0;
@@ -414,6 +541,7 @@ void visTrajectory(MatrixXd polyCoeff, VectorXd time) {
   _traj_vis_pub.publish(_traj_vis);
 }
 
+// 可视化规划的路径点，同样是发布为3D点云，用于在RViz中显示路径
 void visPath(MatrixXd nodes) {
   visualization_msgs::Marker points;
 
@@ -447,6 +575,7 @@ void visPath(MatrixXd nodes) {
   _path_vis_pub.publish(points);
 }
 
+// 根据当前时间计算在轨迹上的位置，用于在重新规划时确定起始点
 Vector3d getPos(double t_cur) {
   double time = 0;
   Vector3d pos = Vector3d::Zero();
@@ -462,6 +591,7 @@ Vector3d getPos(double t_cur) {
   return pos;
 }
 
+// 根据当前时间计算在轨迹上的速度，用于在重新规划时确定起始速度
 Vector3d getVel(double t_cur) {
   double time = 0;
   Vector3d Vel = Vector3d::Zero();
@@ -476,6 +606,21 @@ Vector3d getVel(double t_cur) {
   }
   return Vel;
 }
+Vector3d getAcc(double t_cur) {
+  double time = 0;
+  Vector3d Acc = Vector3d::Zero();
+  for (int i = 0; i < _polyTime.size(); i++) {
+    for (double t = 0.0; t < _polyTime(i); t += 0.01) {
+      time += 0.01;
+      if (time > t_cur) {
+        Acc = _trajGene->getAccPoly(_polyCoeff, i, t);
+        return Acc;
+      }
+    }
+  }
+  return Acc;
+}
+
 
 int main(int argc, char **argv) {
   ros::init(argc, argv, "traj_node");
@@ -496,11 +641,12 @@ int main(int argc, char **argv) {
 
   _poly_num1D = 2 * _dev_order;
 
-  _exec_timer = nh.createTimer(ros::Duration(0.01), execCallback);
+  _exec_timer = nh.createTimer(ros::Duration(0.01), execCallback);//核心，定时器回调
 
   _odom_sub = nh.subscribe("odom", 10, rcvOdomCallback);
   _map_sub = nh.subscribe("local_pointcloud", 1, rcvPointCloudCallBack);
   _pts_sub = nh.subscribe("waypoints", 1, rcvWaypointsCallBack);
+  _imu_sub = nh.subscribe("imu", 10, rcvImuCallback);
 
   _traj_pub =
       nh.advertise<quadrotor_msgs::PolynomialTrajectory>("trajectory", 50);

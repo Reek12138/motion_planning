@@ -1,0 +1,2 @@
+src/read_only/Utils/odom_visualization:src/read_only/Utils/pose_utils:src/read_only/Utils/quadrotor_msgs:src/read_only/Utils/rviz_plugins:src/read_only/Utils/traj_server:src/read_only/Utils/waypoint_generator:src/read_only/map_server/map_generator:src/read_only/map_server/map_render:src/read_only/quadrotor_simulator/so3_control:src/read_only/quadrotor_simulator/so3_quadrotor_simulator:src/trajectory_generator
+-DCATKIN_DEVEL_PREFIX=/home/reek/motion_planning/project/Project/devel -DCMAKE_INSTALL_PREFIX=/home/reek/motion_planning/project/Project/install -G Unix Makefiles

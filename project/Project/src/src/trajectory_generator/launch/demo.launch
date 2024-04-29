@@ -18,10 +18,11 @@
       <remap from="~waypoints"        to="/waypoint_generator/waypoints"/>
       <remap from="~local_pointcloud" to="/pcl_render_node/local_pointcloud"/> 
       <remap from="~odom"             to="/visual_slam/odom"/>
+      <remap from="~imu"              to="/sim/imu"/>
       
       <param name="planning/vel"                value="3.0"  />
       <param name="planning/acc"                value="2.0"  />
-      <param name="planning/dev_order"          value="4"    />
+      <param name="planning/dev_order"          value="3"    />
       <param name="planning/min_order"          value="3"    />
       <param name="vis/vis_traj_width"          value="0.07" />
       <param name="map/margin"                  value="0.0" />

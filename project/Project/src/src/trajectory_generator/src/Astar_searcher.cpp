@@ -174,8 +174,18 @@ inline void AstarPathFinder::AstarGetSucc(GridNodePtr currentPtr,
 
 double AstarPathFinder::getHeu(GridNodePtr node1, GridNodePtr node2) {
   // using digonal distance and one type of tie_breaker.
-  double h;
+  
+  auto delta = node1->coord -node2->coord;
+  double manhattan = std::abs(delta.x()) + std::abs(delta.y()) + std::abs(delta.z());
+  double euclidean = delta.norm();
+  //对角线距离
+  double dx = std::abs(delta.x()), dy = std::abs(delta.y()), dz = std::abs(delta.z());
+  double diagonal = std::min({dx, dy, dz});
+  double straight = dx + dy + dz - 2*diagonal;
 
+  double h = straight;
+  double p = 1.0 + (1.0 / 1000);
+  h *= p;
   return h;
 }
 
@@ -225,6 +235,7 @@ void AstarPathFinder::AstarGraphSearch(Vector3d start_pt, Vector3d end_pt) {
   double tentative_gScore;
   vector<GridNodePtr> neighborPtrSets;
   vector<double> edgeCostSets;
+  GridNodeMap[start_idx[0]][start_idx[1]][start_idx[2]] -> id = 1;
 
   /**
    *
@@ -232,6 +243,48 @@ void AstarPathFinder::AstarGraphSearch(Vector3d start_pt, Vector3d end_pt) {
    *
    * **/
   while (!openSet.empty()) {
+    auto lowestCostNode = openSet.begin();
+    currentPtr = lowestCostNode -> second;
+    openSet.erase(lowestCostNode);
+
+    if(currentPtr->index == goalIdx){
+      ros::Time time_2 = ros::Time::now();
+      terminatePtr = currentPtr;
+      ROS_WARN("[A*]{sucess}  Time in A*  is %f ms, path cost if %f m", (time_2 - time_1).toSec() * 1000.0, currentPtr->gScore * resolution );            
+      return;
+    }
+    AstarGetSucc(currentPtr, neighborPtrSets, edgeCostSets);
+
+    for(int i = 0; i < (int)neighborPtrSets.size(); i++){
+      neighborPtr = neighborPtrSets[i];
+
+      if(neighborPtr -> id == 0){
+        double tentative_gScore = currentPtr->gScore + edgeCostSets[i];
+        neighborPtr->cameFrom = currentPtr;
+        neighborPtr->gScore = tentative_gScore;
+        neighborPtr->fScore = tentative_gScore + getHeu(neighborPtr, endPtr);
+
+        openSet.insert(std::make_pair(neighborPtr->fScore, neighborPtr));
+        neighborPtr->id = 1; //加入开集
+                
+        continue;
+      }
+      else if(neighborPtr->id == 1){
+        double tentative_gScore = currentPtr->gScore + edgeCostSets[i];
+        if(tentative_gScore < neighborPtr->gScore){
+        neighborPtr->cameFrom = currentPtr;
+        neighborPtr->gScore = tentative_gScore;
+        neighborPtr->fScore = tentative_gScore + getHeu(neighborPtr, endPtr);
+        // openSet.erase(neighborPtr->nodeMapIt);//删除旧节点
+        // neighborPtr->nodeMapIt = openSet.insert(std::make_pair(neighborPtr->fScore, neighborPtr));
+
+        }
+        continue;
+      }
+      else{
+        continue;
+      }
+    }
   }
 
   // if search fails
@@ -250,8 +303,62 @@ vector<Vector3d> AstarPathFinder::getPath() {
    * STEP 1.4:  trace back the found path
    *
    * **/
-
+  auto temPtr = terminatePtr;
+  while(temPtr->cameFrom != NULL){
+    gridPath.push_back(temPtr);
+    temPtr = temPtr->cameFrom;
+  }
+  for(auto ptr:gridPath)
+    path.push_back(ptr->coord);
+  
+  reverse(path.begin(), path.end());
+  ROS_INFO("This is a getPath info messgae.");
   return path;
+}
+
+//计算一个点到由两个端点定义的直线的垂直距离
+double perpendicularDistance(const Vector3d &point, const Vector3d &lineStart, const Vector3d &lineEnd) {
+    Vector3d lineVec = lineEnd - lineStart;
+    Vector3d pointVec = point - lineStart;
+    Vector3d lineVecNorm = lineVec.normalized();
+    double distance = (pointVec - pointVec.dot(lineVecNorm) * lineVecNorm).norm();
+    return distance;
+}
+
+//递归函数，实现 RDP 算法，使用 perpendicularDistance 来找到距离直线最远的点，并根据这个距离决定是否继续递归简化路径
+void DouglasPeucker(const vector<Vector3d> &pointList, double epsilon, vector<Vector3d> &out) {
+    if (pointList.size() < 2) {
+        throw std::runtime_error("Not enough points to simplify");
+    }
+
+    // Find the point with the maximum distance
+    double dmax = 0.0;
+    size_t index = 0;
+    for (size_t i = 1; i < pointList.size() - 1; i++) {
+        double d = perpendicularDistance(pointList[i], pointList.front(), pointList.back());
+        if (d > dmax) {
+            index = i;
+            dmax = d;
+        }
+    }
+
+    // If max distance is greater than epsilon, recursively simplify
+    if (dmax > epsilon) {
+        vector<Vector3d> recResults1, recResults2;
+        vector<Vector3d> firstPart(pointList.begin(), pointList.begin() + index + 1);
+        vector<Vector3d> secondPart(pointList.begin() + index, pointList.end());
+        DouglasPeucker(firstPart, epsilon, recResults1);
+        DouglasPeucker(secondPart, epsilon, recResults2);
+
+        // Build the result list
+        out.reserve(recResults1.size() + recResults2.size() - 1);
+        out.insert(out.end(), recResults1.begin(), recResults1.end() - 1);
+        out.insert(out.end(), recResults2.begin(), recResults2.end());
+    } else {
+        // Just return start and end points
+        out.push_back(pointList.front());
+        out.push_back(pointList.back());
+    }
 }
 
 vector<Vector3d> AstarPathFinder::pathSimplify(const vector<Vector3d> &path,
@@ -262,6 +369,7 @@ vector<Vector3d> AstarPathFinder::pathSimplify(const vector<Vector3d> &path,
    * STEP 2.1:  implement the RDP algorithm
    *
    * **/
+  DouglasPeucker(path, path_resolution, subPath);
   return subPath;
 }
 

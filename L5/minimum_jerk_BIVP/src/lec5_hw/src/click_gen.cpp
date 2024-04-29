@@ -82,7 +82,18 @@ void minimumJerkTrajGen(
     // --              --
     // Please computed coefficientMatrix of the minimum-jerk trajectory
     // in this function
+    std::stringstream ss2;
+    ss2 << "Time Allocation Vector: [";
+    for (int i = 0; i < timeAllocationVector.size(); ++i) {
+        ss2 << timeAllocationVector(i);
+        if (i != timeAllocationVector.size() - 1) {
+            ss2 << ", ";
+        }
+    }
+    ss2 << "]";
 
+  // 使用ROS_INFO打印字符串
+  ROS_INFO("\033[35m%s\033[0m", ss2.str().c_str());
     // ------------------------ Put your solution below ------------------------
     Eigen::MatrixXd M = Eigen::MatrixXd::Zero(6*pieceNum, 6*pieceNum);
     Eigen::MatrixXd b = Eigen::MatrixXd::Zero(6*pieceNum, 3);

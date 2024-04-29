@@ -10,6 +10,7 @@
 #include <std_msgs/Bool.h>
 #include <tf/transform_datatypes.h>
 
+// namespace so3_control{  //18.04中删去这行
 class SO3ControlNodelet : public nodelet::Nodelet
 {
 public:
@@ -56,6 +57,7 @@ private:
   bool            use_external_yaw_;
   double          kR_[3], kOm_[3], corrections_[3];
 };
+
 
 void
 SO3ControlNodelet::publishSO3Command(void)
@@ -215,6 +217,21 @@ SO3ControlNodelet::onInit(void)
                          ros::TransportHints().tcpNoDelay());
 }
 
+// } //18.04中删去这行
+
+//16.04
+// #include <pluginlib/class_list_macros.h>
+// PLUGINLIB_DECLARE_CLASS(so3_control, SO3ControlNodelet, SO3ControlNodelet,
+//                         nodelet::Nodelet);
+
+//18.04
+// #include <pluginlib/class_list_macros.h>
+// PLUGINLIB_EXPORT_CLASS(so3_control::SO3ControlNodelet, nodelet::Nodelet)
+
+//20.04
 #include <pluginlib/class_list_macros.h>
-PLUGINLIB_DECLARE_CLASS(so3_control, SO3ControlNodelet, SO3ControlNodelet,
-                        nodelet::Nodelet);
+
+// PLUGINLIB_EXPORT_CLASS(so3_control::SO3ControlNodelet, nodelet::Nodelet)
+PLUGINLIB_EXPORT_CLASS(SO3ControlNodelet, nodelet::Nodelet)
+
+
